@@ -1,0 +1,57 @@
+@import "../UI/style.scss";
+
+.spinner {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    margin: 0 auto;
+    border-top: 8px solid aliceblue;
+    border-right: 8px solid aliceblue;
+    border-bottom: 8px solid aliceblue;
+    border-left: 8px solid #8c618d;
+    border-radius: 50%;
+
+    animation-name: spin;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.logo {
+    position: relative;
+    font-family: sans-serif;
+    width: 55px;
+    margin: 0 auto;
+    color: $black;
+    letter-spacing: 0.1em;
+    padding: 20px 0px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+        border-left: 8px solid deeppink;
+    }
+
+    25% {
+        transform: rotate(360deg);
+        border-left: 8px solid gold;
+    }
+
+    50% {
+        transform: rotate(720deg);
+        border-left: 8px solid palegreen;
+    }
+
+    75% {
+        transform: rotate(1080deg);
+        border-left: 8px solid aqua;
+    }
+
+    100% {
+        transform: rotate(1440deg);
+        border-left: 8px solid deeppink;
+    }
+}
+
+

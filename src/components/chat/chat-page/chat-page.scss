@@ -1,0 +1,63 @@
+@import '../../UI/style.scss';
+
+
+.messages__chat {
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+  .message__chat-name {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    text-align: center;
+    padding-bottom: 5px;
+  }
+  .chatMessages {
+    padding: 20px;
+    min-height: 350px;
+    max-height: 350px;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.messages__img-chat-me,
+.messages__img-chat {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 10px;
+}
+
+.messages__item-message-me,
+.messages__item-message {
+  display: flex;
+  align-items: center;
+}
+
+.messages__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.messages__sendInput {
+  @include input;
+  background: transparent;
+  color: black;
+  border-bottom: 2px solid #ccc;
+  display: flex;
+  justify-content: center;
+}
+
+.messages__chat-btn {
+  @include button;
+  width: 70px;
+  height: 30px;
+  margin-left: 20px;
+}
+
+@media (max-width: 500px) {
+  .messages__chat {
+    width: 100%;
+  }
+}

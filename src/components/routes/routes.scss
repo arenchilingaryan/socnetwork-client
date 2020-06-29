@@ -1,0 +1,16 @@
+@import '../UI/style.scss';
+
+.menu__btn {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 100px;
+    height: 35px;
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    background: $black;
+    color: $white;
+    font-size: 20px;
+}

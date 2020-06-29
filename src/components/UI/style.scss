@@ -1,0 +1,41 @@
+$purple: #901fbc;
+$darkPurple: #51186f;
+$pink: #f50057;
+$white: #ffffff;
+$black: #212121;
+$gray: #f3f3f3;
+$blue: #08b19f;
+$fontRoboto: 'Roboto', sans-serif;
+
+@mixin input {
+  border: none;
+  outline: none;
+  background: #51186f;
+  border-bottom: 3px solid #ffffff;
+  margin-bottom: 20px;
+  padding: 0px 20px;
+  text-align: center;
+  transition: transform .5s;
+  color: $white;
+  &:focus {
+    border-bottom: 3px solid #eb1d58;
+    transform: scale(1.3);
+  }
+}
+
+@mixin button {
+  border: none;
+  outline: none;
+  width: 210px;
+  height: 35px;
+  font-size: 17px;
+  font-weight: bold;
+  background: #eb1d58;
+  cursor: pointer;
+  transition: all .3s;
+  border-radius: 25px;
+  color: $white;
+  &:hover {
+    transform: scale(1.2);
+  }
+}

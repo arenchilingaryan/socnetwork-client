@@ -1,0 +1,17 @@
+@import '../../UI/style.scss';
+
+.profileInfo {
+    padding: 50px;
+    background: $gray;
+}
+.profileInfo__item {
+    margin-bottom: 20px;
+    .profileInfo__titles {
+        font-size: 12px;
+        text-transform: uppercase;
+        color: $blue;
+    }
+    &:last-child {
+        margin-bottom: 0px;
+    }
+}

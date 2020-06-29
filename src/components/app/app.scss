@@ -1,0 +1,15 @@
+@import '../UI/style.scss';
+
+.App {
+    transition: all .5s;
+}
+.App__menu {
+    position: relative;
+    transform: scale(2) rotate(30deg);
+    opacity: 0;
+    z-index: -10;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}

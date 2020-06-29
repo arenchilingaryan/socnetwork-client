@@ -1,0 +1,33 @@
+@import "../../UI/style.scss";
+
+.authLogin {
+  padding-top: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background: $darkPurple;
+  .authLogin__password-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.authLogin__input {
+  @include input;
+  position: relative;
+}
+.authLogin__button {
+  @include button;
+}
+.authLogin__button:hover {
+  transform: scale(1.2);
+}
+
+.authLogin__password-icon {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+}

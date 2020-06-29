@@ -1,0 +1,23 @@
+@import '../UI/style.scss';
+
+.editPage__wrapper {
+    height: 100vh;
+    background: $darkPurple;
+}
+.editPage {
+    padding-top: 50px;
+    width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $white;
+    .editPage__input {
+        @include input;
+        width: 200px;
+    }
+    .editPage__button {
+        @include button;
+        color: $white;
+    }
+}
