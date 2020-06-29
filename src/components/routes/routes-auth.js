@@ -8,15 +8,14 @@ import { setMyProfileData } from '../../redux/reducers/my.profile.reducer'
 import { useHttp } from '../../hooks/http-hook'
 import { useAuth } from '../../hooks/auth-hook'
 import Messages from '../chat/chat'
-import ChatDialogs from '../chat/chat-dialogs/chat-dialogs'
-import ChatPage from '../chat/chat-page/chat-page'
+import { serverURL } from '../app/app'
 
 function AuthRoutes(props) {
     const { request } = useHttp()
     const { userId } = useAuth()
     useEffect(() => {
         if (userId) {
-            request('/api/profile/getinfo', 'POST', {userId}, true)
+            request(`${serverURL}/api/profile/getinfo`, 'POST', {userId}, true)
             .then(res => props.setMyProfile(res.user))
         }
     }, [userId])

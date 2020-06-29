@@ -4,7 +4,7 @@ import { toggleMenu } from '../../redux/reducers/menu.reducer'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelopeSquare, faUsers, faSignOutAlt, faIdCardAlt } from '@fortawesome/free-solid-svg-icons'
 import './menu.scss'
-import { NavLink, useHistory } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { useAuth } from '../../hooks/auth-hook'
 
 function Menu(props) {
@@ -38,7 +38,7 @@ function Menu(props) {
                         <FontAwesomeIcon className="menu__icon-hide" icon={faIdCardAlt} />
                     </div>
                 </NavLink>
-                <button onClick={logoutHandler} className="menu__icon-container">
+                <button onClick={logoutHandler} className="menu__icon-container menu__link">
                     <FontAwesomeIcon className="menu__icon" icon={faSignOutAlt} />
                     <span className="menu__icon-desc">Sign Out</span>
                     <FontAwesomeIcon className="menu__icon-hide" icon={faSignOutAlt} />

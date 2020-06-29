@@ -1,4 +1,4 @@
-@import '../../UI/style.scss';
+@import "../../UI/style.scss";
 
 .messages__header {
   width: 100%;
@@ -12,5 +12,10 @@
   .messages__personal {
     display: flex;
     align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+    &:hover {
+      transform: scale(1.2);
+    }
   }
 }

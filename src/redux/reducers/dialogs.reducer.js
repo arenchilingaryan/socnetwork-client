@@ -12,10 +12,17 @@ export const setCurrentMessages = (messages) => ({ type: 'SET_CURRENT_MESSAGES',
 export const setCurrentUser = (user) => ({type: 'SET_CUURENT_USER', user})
 export const setCurrentDialogId = (id) => ({type: 'SET_CURRENT_DIALOG_ID', id})
 export const addCurrentMessage = (obj) => ({type: 'ADD_CURRENT_MESSAGE', obj})
+export const deleteDialogs = () => ({type: 'DELETE_DIALOGS'})
 
 
 export default function dialogsReducer(state = initialState, action) {
     switch (action.type) {
+      case 'DELETE_DIALOGS': {
+        return {
+          ...state,
+          dialogs: []
+        }
+      }
         case 'SET_DIALOGS': {
           return {
             ...state,

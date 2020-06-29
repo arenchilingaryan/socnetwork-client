@@ -1,32 +1,40 @@
-import React, { useEffect, useState } from 'react'
-import './chat-dialogs.scss'
+import React, { useEffect, useCallback } from 'react'
 import { connect } from 'react-redux'
 import { useHttp } from '../../../hooks/http-hook'
-import { setDialogs, setCurrentMessages, setCurrentUser, setCurrentDialogId } from '../../../redux/reducers/dialogs.reducer'
+import { setDialogs, setCurrentMessages, setCurrentUser, setCurrentDialogId, deleteDialogs } from '../../../redux/reducers/dialogs.reducer'
 import io from 'socket.io-client'
 import Spinner from '../../spinner/spinner'
 import { useHistory } from 'react-router-dom'
 import { serverURL } from '../../app/app'
+import './chat-dialogs.scss'
 
-const socket = io('https://obscure-dusk-00211.herokuapp.com/')
+io('https://obscure-dusk-00211.herokuapp.com/')
+
 
 function ChatDialogs(props) {
   const { request, loading } = useHttp()
   const history = useHistory()
 
-  useEffect(() => {
-    props.myProfile.dialogs.map(el => {
-      return request(`${serverURL}/api/profile/getinfo`, 'POST', { userId: el.with }, true).then(res => {
-        const dialogObj = { ...res.user, dialogId: el.id }
+  const dialogsMount = useCallback(
+    () => {
+      props.deleteDialogs()
+      props.myProfile.dialogs.map(async el => {
+        console.log('lol')
+        const data = await request(`${serverURL}/api/profile/getinfo`, 'POST', { userId: el.with }, true)
+        const dialogObj = { ...data.user, dialogId: el.id }
         props.setDialogs(dialogObj)
-      }
-      )
-    })
-  }, [props.myProfile])
+      })
+    },
+    [request],
+  )
+
+  useEffect(() => {
+    dialogsMount()
+  }, [props.myProfile, dialogsMount])
 
   const loadMessages = async (dialogId, userId) => {
     try {
-      const data = await request(`${serverURL}/api/dialogs/getdialog`, 'POST', {id: dialogId}, true)
+      const data = await request(`${serverURL}/api/dialogs/getdialog`, 'POST', { id: dialogId }, true)
       const user = await request(`${serverURL}/api/profile/getinfo`, 'POST', { userId }, true)
       props.setCurrentUser(user.user)
       props.setCurrentDialog(data.messages)
@@ -74,7 +82,8 @@ function mapDispatchToProps(dispatch) {
     setDialogs: (data) => dispatch(setDialogs(data)),
     setCurrentDialog: (currentDate) => dispatch(setCurrentMessages(currentDate)),
     setCurrentUser: (user) => dispatch(setCurrentUser(user)),
-    setCurrentDialogId: (id) => dispatch(setCurrentDialogId(id))
+    setCurrentDialogId: (id) => dispatch(setCurrentDialogId(id)),
+    deleteDialogs: () => dispatch(deleteDialogs())
   }
 }
 
