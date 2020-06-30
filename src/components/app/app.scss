@@ -1,15 +1,30 @@
-@import '../UI/style.scss';
+@import "../UI/style.scss";
 
 .App {
-    transition: all .5s;
+    transition: all 0.5s;
 }
+
 .App__menu {
-    position: relative;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    width: 0%;
+    height: 0%;
     transform: scale(2) rotate(30deg);
     opacity: 0;
     z-index: -10;
+    animation: appMount ease-in-out 1s;
 }
 
 ::-webkit-scrollbar {
     display: none;
+}
+
+@keyframes appMount {
+    0% {
+        width: 100%;
+    }
+    100% {
+        width: 0%;
+    }
 }
