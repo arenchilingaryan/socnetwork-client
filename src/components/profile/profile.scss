@@ -124,7 +124,11 @@
     width: 70px;
     height: 35px;
 }
-
+@media (max-width: 600px) {
+    .profile__wrapper {
+        padding-top: 50px;
+    }
+}
 @media (max-width: 500px) {
     .profile__container {
         width: 100%;
