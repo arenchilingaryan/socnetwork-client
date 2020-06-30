@@ -63,7 +63,7 @@ function Users(props) {
                                                     className="users__item-img"
                                                     src={el.img ? `data:image/png;base64,${el.img}` : defaultUser}
                                                     alt={defaultUser} />
-                                                <span> {el.userName ? el.userName : `user${idx}`} </span>
+                                                <span className="users__nickname" > {el.userName ? el.userName : `user${idx}`} </span>
                                                 <span> {el.firstName + ' ' + el.lastName} </span>
                                                 <span> {el.age ? el.age : 'NONE'} </span>
                                                 {
