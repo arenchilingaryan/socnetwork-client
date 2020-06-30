@@ -47,7 +47,7 @@ const LoginPage = () => {
                 loading
                     ? <Spinner />
                     : <form className="authLogin">
-                        <h1 style={error ? { display: 'block' } : { display: 'none' }} >Error!</h1>
+                        <h1 style={error ? { display: 'block' } : { display: 'none' }} >Incorrect Email Or Password!</h1>
                         <label htmlFor="email">Email</label>
                         <input onChange={loginChangeHandler} className="authLogin__input" type="text" name="email" />
                         <div className="authLogin__password-wrapper">
